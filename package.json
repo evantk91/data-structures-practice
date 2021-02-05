@@ -4,7 +4,7 @@
   "description": "Udacity data structures practice problems",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/**/*$MATCH*.test.js"
   },
   "author": "Evan Greer",
   "license": "ISC"
