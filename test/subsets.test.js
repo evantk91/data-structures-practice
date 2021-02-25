@@ -11,7 +11,7 @@ describe('subsets tests', () => {
    
    it('test case #2', () => {
       const arr = [5, 7];
-      const solution = [[], [7], [5], [7,5]];
+      const solution = [[], [7], [5], [5,7]];
       const output = subsets(arr);
       assert.deepEqual(solution, output);       
    });
@@ -25,7 +25,7 @@ describe('subsets tests', () => {
 
    it('test case #4', () => {
       const arr = [9, 8, 9, 8];
-      const solution = [[8], [9], [9, 8], [8], [8, 8], [8, 9], [8, 9, 8], [9], [9, 8], [9, 9], [9, 9, 8], [9, 8], [9, 8, 8], [9, 8, 9], [9, 8, 9, 8]];
+      const solution = [[], [8], [9], [9, 8], [8], [8, 8], [8, 9], [8, 9, 8], [9], [9, 8], [9, 9], [9, 9, 8], [9, 8], [9, 8, 8], [9, 8, 9], [9, 8, 9, 8]];
       const output = subsets(arr);
       assert.deepEqual(solution, output);       
    });

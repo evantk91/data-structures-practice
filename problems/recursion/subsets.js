@@ -11,17 +11,21 @@ function returnSubsets(arr, idx) {
       return [[]];   
    }
 
+   //call recursively on each index
    let smallOutput = returnSubsets(arr, idx + 1);
 
    let output = [];
+   //store existing subsets in output from previous iteration
    for(let i = 0; i < smallOutput.length; i++) {
       output.push(smallOutput[i]);   
    }
 
+   //create subsets using subsets from the previous recursive call
+   //starting with element at the current index starting from the end of the array
    for(let j = 0; j < smallOutput.length; j++) {
       let current = [];
       current.push(arr[idx]);
-      current.concat(smallOutput[j]);
+      current = current.concat(smallOutput[j]);
       output.push(current);
    }
 
