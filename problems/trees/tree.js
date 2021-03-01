@@ -40,6 +40,34 @@ class Node {
    }
 }
 
+class State {
+   constructor(node) {
+      this.node = node;
+      this.visitedLeft = false;
+      this.visitedRight = false;   
+   }
+   
+   getNode() {
+      return this.node;   
+   }
+
+   getVisitedLeft() {
+      return this.visitedLeft;
+   }
+
+   getVisitedRight() {
+      return this.visitedRight;
+   }
+
+   setVisitedLeft() {
+      this.visitedLeft = true;
+   }
+
+   setVisitedRight() {
+      this.visitedRight = true;
+   }
+}
+
 class Tree {
    constructor(value = null) {
       this.root = new Node(value);    
