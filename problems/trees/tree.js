@@ -80,5 +80,6 @@ class Tree {
 
 module.exports = {
    Node,
+   State,
    Tree    
 }
