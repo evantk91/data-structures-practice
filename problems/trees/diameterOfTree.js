@@ -22,14 +22,14 @@ function convertArrayToBT(arr) {
 
       if(leftChild) {
          let leftNode = new Node(leftChild);
-         currentNode.left = leftChild;
+         currentNode.left = leftNode;
          q.enq(leftNode);   
       }
       let rightChild = arr[idx];
       idx += 1;
       if(rightChild) {
          rightNode = new Node(rightChild);
-         currentNode.right = rightChild;
+         currentNode.right = rightNode;
          q.enq(rightNode);     
       }
    }
@@ -38,13 +38,34 @@ function convertArrayToBT(arr) {
 }
 
 function diameterOfBinaryTree(root) {
-    // Given the root of a binary tree, returns the diameter of the binary tree
+   // Given the root of a binary tree, returns the diameter of the binary tree
+
+   return diameterOfBinaryTreeFunc(root);
 }
+
+function diameterOfBinaryTreeFunc(root) {
+   if(!root) {
+      return [0, 0];    
+   }
+
+   console.log(diameterOfBinaryTreeFunc(root.left));
+   [leftHeight, leftDiameter] = diameterOfBinaryTreeFunc(root.left);
+   console.log(diameterOfBinaryTreeFunc(root.right));
+   [rightHeight, rightDiameter] = diameterOfBinaryTreeFunc(root.right);
+
+   let currentHeight = Math.max(leftHeight, rightHeight) + 1;
+   let heightDiameter = leftHeight + rightHeight;
+   let currentDiameter = Math.max(leftDiameter, rightDiameter, heightDiameter);
+
+   console.log(currentHeight, '-', currentDiameter);
+   return [currentHeight, currentDiameter];
+} 
 
 let arr = [1, 2, 3, 4, null, 5, null, null, null, null, null];
 let tree = convertArrayToBT(arr);
-console.log(BFS(tree))
+console.log(BFS(tree));
 
 module.exports = {
-   diameterOfBinaryTree,    
+   diameterOfBinaryTree,
+   convertArrayToBT    
 }
